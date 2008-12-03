@@ -1,0 +1,14 @@
+
+%h1 Route details
+
+%p
+  %b Name: 
+  =h @route.name
+
+%p
+  %b Description: 
+  =h @route.description
+
+= link_to 'Edit', edit_route_path(@route)
+|
+= link_to 'Back', routes_path

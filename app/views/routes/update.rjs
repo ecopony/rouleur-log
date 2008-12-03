@@ -1,0 +1,4 @@
+page.replace_html 'route-list', :partial => 'routes/index'
+page.replace_html 'route-mods', :text => ''
+page.visual_effect(:highlight, 'route-list')
+flash[:notice] = ""

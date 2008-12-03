@@ -1,0 +1,17 @@
+
+%br
+
+%div{:id => 'show-bike'}
+  %fieldset
+    %legend
+      Bike details
+
+    %p
+      %b Name:
+      =h @bike.name
+
+    %p
+      %b Description:
+      =h @bike.description
+
+    = link_to_function "Close", "Effect.BlindUp($('show-bike'), { duration: 0.1 })"

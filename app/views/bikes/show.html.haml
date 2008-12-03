@@ -1,0 +1,14 @@
+
+%h1 Bike details
+
+%p
+  %b Name: 
+  =h @bike.name
+
+%p
+  %b Description: 
+  =h @bike.description
+
+= link_to 'Edit', edit_bike_path(@bike)
+|
+= link_to 'Back', bikes_path

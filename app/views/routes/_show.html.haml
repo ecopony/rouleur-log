@@ -1,0 +1,17 @@
+
+%br
+
+%div{:id => 'show-route'}
+  %fieldset
+    %legend
+      Route details
+
+    %p
+      %b Name:
+      =h @route.name
+
+    %p
+      %b Description:
+      =h @route.description
+
+    = link_to_function "Close", "Effect.BlindUp($('show-route'), { duration: 0.1 })"

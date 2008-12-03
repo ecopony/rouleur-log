@@ -1,0 +1,38 @@
+
+%br
+
+%div{:id => 'show-ride'}
+  %fieldset
+    %legend
+      Ride details
+
+    %p
+      %b Distance:
+      =h @ride.distance
+
+    %p
+      %b Time:
+      =h @ride.time
+
+    %p
+      %b Average speed:
+      =h @ride.average_speed
+
+    %p
+      %b Ride type:
+      =h @ride.ride_type.name unless @ride.ride_type.nil?
+
+    %p
+      %b Bike:
+      =h @ride.bike.name unless @ride.bike.nil?
+
+    %p
+      %b Route:
+      =h @ride.route.name unless @ride.route.nil?
+
+    %p
+      %b Ride on:
+      =h @ride.ride_on
+
+    = link_to_function "Close", "Effect.BlindUp($('show-ride'), { duration: 0.1 })"
+

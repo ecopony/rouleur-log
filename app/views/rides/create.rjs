@@ -1,0 +1,4 @@
+page.replace_html 'ride-list', :partial => 'rides/index'
+page.replace_html 'ride-mods', :text => ''
+page.visual_effect(:highlight, 'ride-list')
+flash[:notice] = ""

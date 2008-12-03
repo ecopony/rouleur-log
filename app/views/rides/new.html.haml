@@ -1,0 +1,10 @@
+
+%h1 New ride
+
+= error_messages_for :ride
+
+- form_for(@ride) do |f|
+  = render :partial => 'form', :locals => { :f => f }
+
+  %p
+    = f.submit "Create"

@@ -1,0 +1,2 @@
+page.replace_html 'bike-mods', :partial => 'bikes/show', :locals => {:bike => @bike}
+page.visual_effect(:highlight, 'bike-mods')

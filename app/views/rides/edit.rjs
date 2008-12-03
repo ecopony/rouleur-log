@@ -1,0 +1,2 @@
+page.replace_html 'ride-mods', :partial => 'rides/edit', :locals => {:ride => @ride}
+page.visual_effect(:highlight, 'ride-mods')

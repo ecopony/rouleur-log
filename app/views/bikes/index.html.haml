@@ -1,0 +1,23 @@
+
+%h1 Bikes
+
+%table{:width => '100%'}
+  %tr
+    %th Name
+    %th Description
+    %th Actions
+    - for bike in @bikes
+      %tr
+        %td
+          = h bike.name
+        %td
+          = h bike.description
+        %td
+          = link_to('Edit', edit_bike_path(bike))
+          &nbsp;|&nbsp;
+          = link_to('Show', bike)
+
+%br
+  = link_to('New bike', new_bike_path)
+
+  %div{:id => 'bike-mods'}

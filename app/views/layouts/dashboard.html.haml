@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC “-//W3C//DTD HTML 4.01//EN” “http://www.w3.org/TR/html4/strict.dtd”>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+%head
+
+  = stylesheet_link_tag 'scaffold'
+  = stylesheet_link_tag 'main'
+
+  = stylesheet_link_tag 'tools'
+  = stylesheet_link_tag 'typo'
+  = stylesheet_link_tag 'forms'
+  = stylesheet_link_tag 'layout-navtop-subright'
+  = stylesheet_link_tag 'layout'
+  = stylesheet_link_tag 'nav-horizontal'
+
+  = javascript_include_tag 'prototype'
+  = javascript_include_tag 'lowpro'
+  = javascript_include_tag 'effects'
+  = javascript_include_tag 'dragdrop'
+  = javascript_include_tag 'controls'
+  = javascript_include_tag 'application'
+
+  = calendar_date_select_includes 'silver'
+  = stylesheet_link_tag 'calendar/grey/style'
+
+  %title Rouleur Log
+
+%body{:id => "page-home"}
+
+  %div{:id => "page"}
+    %div{:id => "header", :class => "clearfix"}
+      %div{:id => "branding"}
+        %h1
+          RouleurLog
+
+    %div{:id => "content", :class => "clearfix"}
+
+      %div{:id => "main"}
+        = yield :left_column
+
+      %div{:id => "sub"}
+        = yield :right_column
+
+        %br
+
+        %ul{:class => "clearfix"}
+          %li
+            = link_to 'Logout', logout_path
+
+      %div{:id => "local"}
+        %h2 Navi
+        %ul
+          %li local
+
+      %div{:id => "nav"}
+        = render :partial => '/navigation.html.haml'
+
+    %div{:id => "footer", :class => "clearfix"}
+      %div{:id => "divider"}
+      %span{:class => "left"}
+        &nbsp;
+
+
+      %script{:type => "text/javascript"}
+      = yield :bottom_script

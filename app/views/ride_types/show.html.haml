@@ -1,0 +1,25 @@
+
+%h1 Ride type details
+
+%p
+  %b Name:
+  =h @ride_type.name
+
+
+%p
+  %b Description
+  =h @ride_type.description
+
+
+%p
+  %b Is commute:
+  =h @ride_type.is_commute
+
+%p
+  %b Is inside:
+  =h @ride_type.is_inside
+
+
+= link_to 'Edit', edit_ride_type_path(@ride_type)
+|
+= link_to 'Back', ride_types_path

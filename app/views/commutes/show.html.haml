@@ -1,0 +1,41 @@
+
+%h1 Commute details
+
+%p
+  %b Name:
+  =h @commute.name 
+
+
+%p
+  %b Distance to:
+  =h @commute.distance_to 
+
+
+%p
+  %b Distance from:
+  =h @commute.distance_from 
+
+
+%p
+  %b Auto log:
+  =h @commute.auto_log 
+
+
+%p
+  %b Days of the week:
+  =h @commute.days_of_the_week 
+
+
+%p
+  %b Start date:
+  =h @commute.start_date 
+
+
+%p
+  %b End date:
+  =h @commute.end_date 
+
+
+
+= link_to 'Edit', edit_commute_path(@commute)  |
+= link_to 'Back', commutes_path 

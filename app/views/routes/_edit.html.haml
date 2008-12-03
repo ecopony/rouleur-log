@@ -1,0 +1,17 @@
+
+%br
+
+%div{:id => 'edit-route-form'}
+  %fieldset
+    %legend
+      Editing route
+    = error_messages_for :route
+
+    - remote_form_for(route) do |f|
+
+      = render :partial => 'routes/form', :locals => { :f => f }
+
+      %p
+        = f.submit "Update"
+        &nbsp;
+        = link_to_function "Close", "$('edit-route-form').down('form').reset(); Effect.BlindUp($('edit-route-form'), { duration: 0.1 })"

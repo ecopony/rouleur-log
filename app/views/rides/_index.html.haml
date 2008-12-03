@@ -1,0 +1,39 @@
+
+%fieldset
+  %legend
+    Rides
+  
+  %table{:width => '100%'}
+    %tr
+      %th
+        %b Date
+      %th
+        Distance
+      %th
+        Type
+      %th
+        Route
+      %th
+        &nbsp;
+    - for ride in @rides
+      %tr
+        %td
+          = ride.ride_on
+        %td
+          = ride.distance
+        %td
+          = ride.ride_type.name unless ride.ride_type.blank?
+        %td
+          = ride.route.name unless ride.route.blank?
+        %td
+          %small
+            = link_to_remote('Edit', :url => edit_ride_path(ride), :method => :get)
+            &nbsp;|&nbsp;
+            = link_to_remote('Show', :url => ride, :method => :get)
+
+  = will_paginate @rides, :prev_label => '«', :next_label => '»', :params => {:controller => 'rides'}
+
+  %small
+    = link_to_remote('New ride', :url => new_ride_path, :method => :get)
+
+  %div{:id => 'ride-mods'}

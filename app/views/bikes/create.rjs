@@ -1,0 +1,4 @@
+page.replace_html 'bike-list', :partial => 'bikes/index'
+page.replace_html 'bike-mods', :text => ''
+page.visual_effect(:highlight, 'bike-list')
+flash[:notice] = ""

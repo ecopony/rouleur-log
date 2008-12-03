@@ -1,0 +1,2 @@
+page.replace_html 'route-mods', :partial => 'routes/new', :locals => {:route => @route}
+page.visual_effect(:highlight, 'route-mods')

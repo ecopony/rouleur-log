@@ -1,0 +1,19 @@
+
+%br
+
+%div{:id => 'edit-ride-form'}
+  %fieldset
+    %legend
+      Edit ride
+
+    = error_messages_for :ride
+
+    - remote_form_for(@ride) do |f|
+
+      = render :partial => 'form', :locals => { :f => f }
+
+      %p
+        = f.submit "Update"
+        &nbsp;
+        = link_to_function "Close", "$('edit-ride-form').down('form').reset(); Effect.BlindUp($('edit-ride-form'), { duration: 0.1 })"
+

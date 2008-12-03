@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  distance: MyString
+  time: MyString
+  average_speed: MyString
+  bike_id: 1
+  ride_on: 2008-04-12
+
+two:
+  distance: MyString
+  time: MyString
+  average_speed: MyString
+  bike_id: 1
+  ride_on: 2008-04-12

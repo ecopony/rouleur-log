@@ -1,0 +1,25 @@
+
+%h1 Commutes
+
+%table{:width => '100%'}
+  %tr
+    %th Name
+    %th Distance to
+    %th Distance from
+    %th Start date
+    %th End date
+    %th Actions
+  - for commute in @commutes
+    %tr
+      %td 
+        =h commute.name 
+      %td=h commute.distance_to 
+      %td=h commute.distance_from 
+      %td=h commute.start_date 
+      %td=h commute.end_date 
+      %td
+        =link_to 'Show', commute 
+        =link_to 'Edit', edit_commute_path(commute) 
+        =link_to 'Destroy', commute, :confirm => 'Are you sure?', :method => :delete 
+
+= link_to 'New commute', new_commute_path 

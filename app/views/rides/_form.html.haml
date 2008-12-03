@@ -1,0 +1,40 @@
+
+%p
+  %b Distance
+  %br
+  = f.text_field :distance
+
+%p
+  %b Time
+  %br
+  = f.text_field :time
+
+%p
+  %b Average speed
+  %br
+  = f.text_field :average_speed
+
+%p
+  %b Ride type
+  %br
+  = f.collection_select(:ride_type_id, RideType.find(:all, :order => "name ASC", :conditions =>"user_id = #{@user_id}"), :id, :name, :include_blank => true)
+
+%p
+  %b Bike
+  %br
+  = f.collection_select(:bike_id, Bike.find(:all, :order => "name ASC", :conditions =>"user_id = #{@user_id}"), :id, :name)
+
+%p
+  %b Route
+  %br
+  = f.collection_select(:route_id, Route.find(:all, :order => "name ASC", :conditions =>"user_id = #{@user_id}"), :id, :name, :include_blank => true)
+
+%p
+  %b Ride on
+  %br
+  = f.calendar_date_select(:ride_on, :year_range => 1.years.ago..0.years.from_now)
+
+%p
+  %b Comments
+  %br
+  = f.text_area(:comments, {:rows => 2})

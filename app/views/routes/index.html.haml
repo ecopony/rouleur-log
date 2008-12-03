@@ -1,0 +1,21 @@
+
+%h1 Routes
+  
+%table{:width => '100%'}
+  %tr
+    %th Name
+    %th Description
+    %th Actions
+  - for route in @routes
+    %tr
+      %td
+        = h route.name
+      %td
+        = h route.description
+      %td
+        = link_to('Edit', edit_route_path(route))
+        &nbsp;|&nbsp;
+        = link_to('Show', route)
+
+%br
+= link_to('New route', new_route_path)

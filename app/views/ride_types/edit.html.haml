@@ -1,0 +1,13 @@
+
+%h1 Edit ride type
+
+= error_messages_for :ride_type
+
+- form_for(@ride_type) do |f|
+  = render :partial => 'form', :locals => { :f => f }
+  %p
+    = f.submit "Update"
+
+= link_to 'Show', @ride_type
+|
+= link_to 'Back', ride_types_path

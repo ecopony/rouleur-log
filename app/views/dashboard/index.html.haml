@@ -1,0 +1,16 @@
+
+= content_for :left_column do
+
+  %div{:id => 'dashboard-info'}
+
+  %div{:id => 'ride-list'}
+    = render :partial => 'rides/index', :locals => {:rides => @rides}
+    
+= content_for :right_column do
+
+  %div{:id => 'bike-list'}
+    = render :partial => 'bikes/index', :locals => {:bikes => @bikes}
+
+  %div{:id => 'route-list'}
+    = render :partial => 'routes/index', :locals => {:routes => @routes}
+

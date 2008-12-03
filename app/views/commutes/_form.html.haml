@@ -1,0 +1,23 @@
+
+%p
+  = f.label :name
+  = f.text_field :name
+%p
+  = f.label :distance_to
+  = f.text_field :distance_to
+%p
+  = f.label :distance_from
+  = f.text_field :distance_from
+%p
+  = f.label :auto_log
+  = f.check_box :auto_log
+%p
+  = f.label :days_of_the_week
+  = f.text_field :days_of_the_week
+  &nbsp;(m, t, w, r, f, s, u)
+%p
+  = f.label :start_date
+  = f.calendar_date_select(:start_date, :year_range => 1.years.ago..0.years.from_now)
+%p
+  = f.label :end_date
+  = f.calendar_date_select(:end_date, :year_range => 1.years.ago..0.years.from_now)

@@ -1,0 +1,15 @@
+
+%div{:class => "wrapper"}
+  %ul{:class => "clearfix"}
+    %li
+      = link_to 'Dashboard', home_path
+    %li
+      = link_to 'Rides', rides_path
+    %li
+      = link_to 'Bikes', bikes_path
+    %li
+      = link_to 'Routes', routes_path
+    %li
+      = link_to 'Calendar', rides_calendar_path(:month => Time.now.month, :year => Time.now.year)
+    %li
+      = link_to 'Admin', :controller => 'admin', :action => 'index'

@@ -1,0 +1,10 @@
+
+%h1 New bike
+
+= error_messages_for :bike
+
+- form_for(@bike) do |f|
+  = render :partial => 'form', :locals => { :f => f }
+
+  %p
+    = f.submit "Create"

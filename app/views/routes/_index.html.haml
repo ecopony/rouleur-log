@@ -1,0 +1,23 @@
+
+%fieldset
+  %legend
+    Routes
+  
+  %table{:width => '100%'}
+    %tr
+      %th Name
+      %th Actions
+    - for route in @routes
+      %tr
+        %td
+          = h route.name
+        %td
+          %small
+            = link_to_remote('Edit', :url => edit_route_path(route), :method => :get)
+            &nbsp;|&nbsp;
+            = link_to_remote('Show', :url => route, :method => :get)
+
+  %small
+    = link_to_remote('New route', :url => new_route_path, :method => :get)
+
+  %div{:id => 'route-mods'}

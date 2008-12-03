@@ -1,0 +1,23 @@
+
+%fieldset
+  %legend
+    Bikes
+  
+  %table{:width => '100%'}
+    %tr
+      %th Name
+      %th Actions
+      - for bike in @bikes
+        %tr
+          %td
+            = h bike.name
+          %td
+            %small
+              = link_to_remote('Edit', :url => edit_bike_path(bike), :method => :get)
+              &nbsp;|&nbsp;
+              = link_to_remote('Show', :url => bike, :method => :get)
+
+  %small
+    = link_to_remote('New bike', :url => new_bike_path, :method => :get)
+
+  %div{:id => 'bike-mods'}

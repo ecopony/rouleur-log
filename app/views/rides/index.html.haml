@@ -1,0 +1,34 @@
+
+%h1 Rides
+
+%table{:width => '100%'}
+  %tr
+    %th
+      %b Date
+    %th
+      Distance
+    %th
+      Type
+    %th
+      Route
+    %th
+      &nbsp;
+  - for ride in @rides
+    %tr
+      %td
+        = ride.ride_on
+      %td
+        = ride.distance
+      %td
+        = ride.ride_type.name unless ride.ride_type.blank?
+      %td
+        = ride.route.name unless ride.route.blank?
+      %td
+        = link_to('Edit', edit_ride_path(ride))
+        &nbsp;|&nbsp;
+        = link_to('Show', ride)
+
+= will_paginate @rides, :prev_label => '«', :next_label => '»', :params => {:controller => 'rides'}
+
+%br
+= link_to('New ride', new_ride_path)

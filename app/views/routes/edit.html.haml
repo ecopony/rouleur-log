@@ -1,0 +1,10 @@
+
+%h1 Edit route
+
+= error_messages_for :route
+
+- form_for(@route) do |f|
+  = render :partial => 'form', :locals => { :f => f }
+
+  %p
+    = f.submit "Update"
