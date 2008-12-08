@@ -16,6 +16,8 @@
         = link_to('Edit', edit_route_path(route))
         &nbsp;|&nbsp;
         = link_to('Show', route)
+        &nbsp;|&nbsp;
+        = link_to 'Delete', route, :confirm => 'Are you sure?', :method => :delete
 
 %br
 = link_to('New route', new_route_path)

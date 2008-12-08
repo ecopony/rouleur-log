@@ -27,6 +27,8 @@
         = link_to('Edit', edit_ride_path(ride))
         &nbsp;|&nbsp;
         = link_to('Show', ride)
+        &nbsp;|&nbsp;
+        = link_to 'Delete', ride, :confirm => 'Are you sure?', :method => :delete
 
 = will_paginate @rides, :prev_label => '«', :next_label => '»', :params => {:controller => 'rides'}
 

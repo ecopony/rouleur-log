@@ -17,7 +17,9 @@
       %td=h ride_type.is_inside
       %td
         =link_to 'Show', ride_type
+        &nbsp;|&nbsp;
         =link_to 'Edit', edit_ride_type_path(ride_type)
-        =link_to 'Destroy', ride_type, :confirm => 'Are you sure?', :method => :delete
+        &nbsp;|&nbsp;
+        =link_to 'Delete', ride_type, :confirm => 'Are you sure?', :method => :delete
 
 = link_to 'New ride type', new_ride_type_path

@@ -25,8 +25,6 @@ describe "/commutes/index.html.erb" do
   it "should render list of commutes" do
     render "/commutes/index.html.haml"
     response.should have_tag("tr>td", "value for name", 2)
-    response.should have_tag("tr>td", "1.5", 2)
-    response.should have_tag("tr>td", "1.5", 2)
   end
 end
 

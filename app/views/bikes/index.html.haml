@@ -16,6 +16,8 @@
           = link_to('Edit', edit_bike_path(bike))
           &nbsp;|&nbsp;
           = link_to('Show', bike)
+          &nbsp;|&nbsp;
+          = link_to 'Delete', bike, :confirm => 'Are you sure?', :method => :delete
 
 %br
   = link_to('New bike', new_bike_path)
