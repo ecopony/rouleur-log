@@ -49,7 +49,7 @@ module RidesHelper
           inside_type = ride.ride_type.name
         end
         
-        ride_details << "<li class='#{ride_style}'>"
+        ride_details << "<li class='#{ride_style}'><a href='#{ride_path(ride)}'>"
         
         if ride.route.blank?
           ride_details << "#{inside_type}" unless inside_type.nil? 
@@ -57,7 +57,7 @@ module RidesHelper
           ride_details << "#{ride.route.name}"
         end
 
-        ride_details << "&nbsp;#{ride.distance}"
+        ride_details << "</a>&nbsp;#{ride.distance}"
         ride_details << "</li>"
       end
       
