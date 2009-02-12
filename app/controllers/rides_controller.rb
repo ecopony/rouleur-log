@@ -6,7 +6,7 @@ class RidesController < ApplicationController
       :per_page => 10, 
       :include => [:bike, :route, :ride_type], 
       :order => "ride_on DESC",
-      :conditions =>"rides.user_id = #{@user_id}"
+      :conditions =>"rides.user_id = #{User.current_user.id}"
     )
 
     respond_to do |format|
@@ -47,7 +47,7 @@ class RidesController < ApplicationController
 
   def create
     @ride = Ride.new(params[:ride])
-    @ride.user_id = @user_id
+    @ride.user_id = User.current_user.id
 
     respond_to do |format|
       if @ride.save
@@ -96,7 +96,7 @@ class RidesController < ApplicationController
       @year = params[:year].to_i
       start_date = Date.new(@year, @month) - 1.day
       end_date = start_date.advance(:months => 1) + 1.day
-      @rides = Ride.find_all_by_user_id(@user_id, :conditions => ["ride_on BETWEEN ? AND ?", start_date, end_date])
+      @rides = Ride.find_all_by_user_id(User.current_user.id, :conditions => ["ride_on BETWEEN ? AND ?", start_date, end_date])
     end
   end
 

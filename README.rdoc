@@ -1,0 +1,26 @@
+= Rouleur Log
+
+A tool for cyclists to log their rides.
+
+== About
+
+* Maintain rides, routes, bikes
+* Multi-user
+* Calendar
+
+== Required gems
+
+* Rails
+* HAML
+* will_paginate
+
+== Plugins utilized
+
+* restful_authentication
+* rspec
+* rspec-rails
+
+== Backlog
+
+* Maintenance log
+* User entries like weight

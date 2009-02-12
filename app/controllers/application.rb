@@ -17,7 +17,8 @@ class ApplicationController < ActionController::Base
     unless logged_in?
       redirect_to(login_url)
     end
-    @user_id = current_user.id unless current_user.nil?
+    
+    User.current_user = current_user
   end
 
 end

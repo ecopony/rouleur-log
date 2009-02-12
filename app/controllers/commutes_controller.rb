@@ -1,7 +1,7 @@
 class CommutesController < ApplicationController
 
   def index
-    @commutes = Commute.find(:all, :conditions =>"user_id = #{@user_id}")
+    @commutes = Commute.find(:all, :conditions =>"user_id = #{User.current_user.id}")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -33,7 +33,7 @@ class CommutesController < ApplicationController
 
   def create
     @commute = Commute.new(params[:commute])
-    @commute.user_id = @user_id
+    @commute.user_id = User.current_user.id
 
     respond_to do |format|
       if @commute.save

@@ -1,7 +1,7 @@
 class BikesController < ApplicationController
 
   def index
-    @bikes = Bike.find(:all, :conditions =>"user_id = #{@user_id}")
+    @bikes = Bike.find(:all, :conditions =>"user_id = #{User.current_user.id}")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -40,14 +40,14 @@ class BikesController < ApplicationController
 
   def create
     @bike = Bike.new(params[:bike])
-    @bike.user_id = @user_id
+    @bike.user_id = User.current_user.id
 
     respond_to do |format|
       if @bike.save
         flash[:notice] = 'Bike was successfully created.'
         format.html { redirect_to(@bike) }
         format.xml  { render :xml => @bike, :status => :created, :location => @bike }
-        format.js { @bikes = Bike.find(:all, :conditions =>"user_id = #{@user_id}") }
+        format.js { @bikes = Bike.find(:all, :conditions =>"user_id = #{User.current_user.id}") }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @bike.errors, :status => :unprocessable_entity }
@@ -64,7 +64,7 @@ class BikesController < ApplicationController
         flash[:notice] = 'Bike was successfully updated.'
         format.html { redirect_to(@bike) }
         format.xml  { head :ok }
-        format.js { @bikes = Bike.find(:all, :limit => 10, :conditions =>"user_id = #{@user_id}") }
+        format.js { @bikes = Bike.find(:all, :limit => 10, :conditions =>"user_id = #{User.current_user.id}") }
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @bike.errors, :status => :unprocessable_entity }

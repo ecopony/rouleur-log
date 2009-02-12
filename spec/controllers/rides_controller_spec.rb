@@ -3,6 +3,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe RidesController do
   
   before(:each) do
+    mock_user
     controller.stub!(:authenticated?).and_return(true)
   end
   

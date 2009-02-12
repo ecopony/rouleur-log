@@ -1,7 +1,7 @@
 class RoutesController < ApplicationController
 
   def index
-    @routes = Route.find(:all, :conditions =>"user_id = #{@user_id}")
+    @routes = Route.find(:all, :conditions =>"user_id = #{User.current_user.id}")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -40,14 +40,14 @@ class RoutesController < ApplicationController
 
   def create
     @route = Route.new(params[:route])
-    @route.user_id = @user_id
+    @route.user_id = User.current_user.id
 
     respond_to do |format|
       if @route.save
         flash[:notice] = 'Route was successfully created.'
         format.html { redirect_to(@route) }
         format.xml  { render :xml => @route, :status => :created, :location => @route }
-        format.js { @routes = Route.find(:all, :limit => 20, :conditions =>"user_id = #{@user_id}", :conditions =>"user_id = #{@user_id}") }
+        format.js { @routes = Route.find(:all, :limit => 20, :conditions =>"user_id = #{User.current_user.id}", :conditions =>"user_id = #{User.current_user.id}") }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @route.errors, :status => :unprocessable_entity }
@@ -64,7 +64,7 @@ class RoutesController < ApplicationController
         flash[:notice] = 'Route was successfully updated.'
         format.html { redirect_to(@route) }
         format.xml  { head :ok }
-        format.js { @routes = Route.find(:all, :limit => 20, :conditions =>"user_id = #{@user_id}", :conditions =>"user_id = #{@user_id}") }
+        format.js { @routes = Route.find(:all, :limit => 20, :conditions =>"user_id = #{User.current_user.id}", :conditions =>"user_id = #{User.current_user.id}") }
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @route.errors, :status => :unprocessable_entity }

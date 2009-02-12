@@ -5,8 +5,6 @@
 
   %div{:id => 'ride-list'}
     = render :partial => 'rides/index', :locals => {:rides => @rides}
-    
-= content_for :right_column do
 
   %div{:id => 'bike-list'}
     = render :partial => 'bikes/index', :locals => {:bikes => @bikes}
@@ -14,3 +12,18 @@
   %div{:id => 'route-list'}
     = render :partial => 'routes/index', :locals => {:routes => @routes}
 
+= content_for :right_column do
+
+  %b
+    =Time.new.strftime('%B, %Y')
+  %br
+  %br
+
+  ="#{pluralize(@month_stats[:total_miles].to_i, 'mile')} total"
+  %br
+  =pluralize(@month_stats[:ride_count].to_i, 'ride')
+  %br
+  ="Long ride: #{pluralize(@month_stats[:long_ride].to_i, 'mile')}"
+
+  %br
+  %br

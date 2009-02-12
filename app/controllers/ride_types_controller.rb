@@ -1,7 +1,7 @@
 class RideTypesController < ApplicationController
 
   def index
-    @ride_types = RideType.find(:all, :conditions =>"user_id = #{@user_id}")
+    @ride_types = RideType.find(:all, :conditions =>"user_id = #{User.current_user.id}")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -33,7 +33,7 @@ class RideTypesController < ApplicationController
 
   def create
     @ride_type = RideType.new(params[:ride_type])
-    @ride_type.user_id = @user_id
+    @ride_type.user_id = User.current_user.id
 
     respond_to do |format|
       if @ride_type.save

@@ -45,3 +45,9 @@ Spec::Runner.configure do |config|
   # 
   # For more information take a look at Spec::Example::Configuration and Spec::Runner
 end
+
+def mock_user
+  @user = mock_model(User)
+  @user.stub!(:id).and_return(1)
+  User.stub!(:current_user).and_return(@user)
+end
