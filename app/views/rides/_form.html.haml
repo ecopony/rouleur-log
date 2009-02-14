@@ -17,17 +17,17 @@
 %p
   %b Ride type
   %br
-  = f.collection_select(:ride_type_id, RideType.find(:all, :order => "name ASC", :conditions =>"user_id = #{@user_id}"), :id, :name, :include_blank => true)
+  = f.collection_select(:ride_type_id, RideType.find(:all, :order => "name ASC", :conditions =>"user_id = #{User.current_user.id}"), :id, :name, :include_blank => true)
 
 %p
   %b Bike
   %br
-  = f.collection_select(:bike_id, Bike.find(:all, :order => "name ASC", :conditions =>"user_id = #{@user_id}"), :id, :name)
+  = f.collection_select(:bike_id, Bike.find(:all, :order => "name ASC", :conditions =>"user_id = #{User.current_user.id}"), :id, :name)
 
 %p
   %b Route
   %br
-  = f.collection_select(:route_id, Route.find(:all, :order => "name ASC", :conditions =>"user_id = #{@user_id}"), :id, :name, :include_blank => true)
+  = f.collection_select(:route_id, Route.find(:all, :order => "name ASC", :conditions =>"user_id = #{User.current_user.id}"), :id, :name, :include_blank => true)
 
 %p
   %b Ride on

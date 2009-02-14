@@ -54,7 +54,7 @@ class RidesController < ApplicationController
         flash[:notice] = 'Ride was successfully created.'
         format.html { redirect_to(@ride) }
         format.xml  { render :xml => @ride, :status => :created, :location => @ride }
-        format.js { @rides = Ride.paginate :page => params[:page], :per_page => 10, :include => [:bike, :route], :order => "ride_on DESC", :conditions =>"rides.user_id = #{@user_id}" }
+        format.js { @rides = Ride.paginate :page => params[:page], :per_page => 10, :include => [:bike, :route], :order => "ride_on DESC", :conditions =>"rides.user_id = #{User.current_user.id}" }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @ride.errors, :status => :unprocessable_entity }
@@ -71,7 +71,7 @@ class RidesController < ApplicationController
         flash[:notice] = 'Ride was successfully updated.'
         format.html { redirect_to(@ride) }
         format.xml  { head :ok }
-        format.js { @rides = Ride.paginate :page => params[:page], :per_page => 10, :include => [:bike, :route], :order => "ride_on DESC", :conditions =>"rides.user_id = #{@user_id}" }
+        format.js { @rides = Ride.paginate :page => params[:page], :per_page => 10, :include => [:bike, :route], :order => "ride_on DESC", :conditions =>"rides.user_id = #{User.current_user.id}" }
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @ride.errors, :status => :unprocessable_entity }
