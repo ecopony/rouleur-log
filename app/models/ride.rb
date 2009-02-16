@@ -6,6 +6,8 @@ class Ride < ActiveRecord::Base
   
   validates_presence_of(:bike_id, :ride_on)
   validates_numericality_of(:distance)
+
+  attr_protected :user_id
   
   def self.month_stats
     total_miles = 0
