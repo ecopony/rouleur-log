@@ -24,10 +24,22 @@ describe Ride do
 
     before(:each) do
       mock_user
-      @last_month_ride = Ride.create({ :bike_id => @bike.id, :ride_on => Time.new.advance(:months => -1), :distance => 21, :user_id => @user.id})
-      @first_ride_this_month = Ride.create({ :bike_id => @bike.id, :ride_on => Time.new, :distance => 13, :user_id => @user.id})
-      @second_ride_this_month = Ride.create({ :bike_id => @bike.id, :ride_on => Time.new, :distance => 101, :user_id => @user.id})
-      @next_month_ride = Ride.create({ :bike_id => @bike.id, :ride_on => Time.new.advance(:months => 1), :distance => 12, :user_id => @user.id})
+      @last_month_ride = Ride.new({ :bike_id => @bike.id, :ride_on => Time.new.advance(:months => -1), :distance => 21 })
+      @last_month_ride.user_id = @user.id
+      @last_month_ride.save!
+
+      @first_ride_this_month = Ride.create({ :bike_id => @bike.id, :ride_on => Time.new, :distance => 13 })
+      @first_ride_this_month.user_id = @user.id
+      @first_ride_this_month.save!
+
+      @second_ride_this_month = Ride.create({ :bike_id => @bike.id, :ride_on => Time.new, :distance => 101 })
+      @second_ride_this_month.user_id = @user.id
+      @second_ride_this_month.save!
+
+      @next_month_ride = Ride.create({ :bike_id => @bike.id, :ride_on => Time.new.advance(:months => 1), :distance => 12 })
+      @next_month_ride.user_id = @user.id
+      @next_month_ride.save!
+
       @stats = Ride.month_stats
     end
     

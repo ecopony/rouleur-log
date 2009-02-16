@@ -4,6 +4,7 @@ describe "/rides/new.html.erb" do
   include RidesHelper
   
   before(:each) do
+    mock_user
     @ride = mock_model(Ride)
     @ride.stub!(:new_record?).and_return(true)
     @ride.stub!(:distance).and_return("MyString")

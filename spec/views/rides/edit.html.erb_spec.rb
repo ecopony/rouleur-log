@@ -4,6 +4,7 @@ describe "/rides/edit.html.erb" do
   include RidesHelper
   
   before do
+    mock_user
     @ride = mock_model(Ride)
     @ride.stub!(:distance).and_return("MyString")
     @ride.stub!(:time).and_return("MyString")
