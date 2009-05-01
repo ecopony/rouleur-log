@@ -95,7 +95,7 @@ class RidesController < ApplicationController
       @month = params[:month].to_i
       @year = params[:year].to_i
       start_date = Date.new(@year, @month) - 1.day
-      end_date = start_date.advance(:months => 1) + 1.day
+      end_date = start_date.advance(:months => 1) + 3.day
       @rides = Ride.find_all_by_user_id(User.current_user.id, :conditions => ["ride_on BETWEEN ? AND ?", start_date, end_date])
     end
   end
