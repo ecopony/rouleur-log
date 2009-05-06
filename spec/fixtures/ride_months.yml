@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  month: 1
+  year: 1
+  distance: 1.5
+  ride_count: 1
+  user_id: 1
+
+two:
+  month: 1
+  year: 1
+  distance: 1.5
+  ride_count: 1
+  user_id: 1

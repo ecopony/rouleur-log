@@ -15,8 +15,13 @@ class DashboardController < ApplicationController
       :conditions =>"user_id = #{User.current_user.id}",
       :limit => 20)
 
-    @month_stats = Ride.month_stats
- 
+    @this_years_ride_months = RideMonth.find(
+      :all,
+      :conditions => ["year = ? and user_id = ?", Time.new.year, User.current_user.id],
+      :order => "month ASC"
+    )
+    
+    @month_stats = Ride.month_stats # Debt: Utilize ride months?
   end
 
 end

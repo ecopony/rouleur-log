@@ -19,11 +19,22 @@
   %br
   %br
 
+
+
   ="#{pluralize(@month_stats[:total_miles].to_i, 'mile')} total"
   %br
   =pluralize(@month_stats[:ride_count].to_i, 'ride')
   %br
   ="Long ride: #{pluralize(@month_stats[:long_ride].to_i, 'mile')}"
+  %br
+  %br
+  %br
 
+  %b
+    Year to date
+  %br
+  %br
+
+  = render_dashboard_ride_months
   %br
   %br
